@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <title>probalistic_model_ingredients.py</title>
+  <link rel="stylesheet" href="pycco.css">
+</head>
+<body>
+<div id='container'>
+  <div id="background"></div>
+  <div class='section'>
+    <div class='docs'><h1>probalistic_model_ingredients.py</h1></div>
+  </div>
+  <div class='clearall'>
+  <div class='section' id='section-0'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-0'>#</a>
+      </div>
+      <p>Adapted from:
+https://flothesof.github.io/probabilistic-ingredients.html</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">re</span>
+<span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">Counter</span>
+<span class="kn">import</span> <span class="nn">itertools</span>
+<span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">defaultdict</span>
+<span class="kn">from</span> <span class="nn">utilities</span> <span class="kn">import</span> <span class="n">clean_text</span>
+<span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">import</span> <span class="nn">os</span>
+
+<span class="n">PATH</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">()</span>
+
+<span class="n">filler_list</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">PATH</span> <span class="o">+</span> <span class="sa">r</span><span class="s1">&#39;/data/filler_strings.csv&#39;</span><span class="p">)[</span><span class="s1">&#39;de&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+<span class="n">filler_reg</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;\b(</span><span class="si">%s</span><span class="s1">)\S?\b&#39;</span> <span class="o">%</span> <span class="s1">&#39;|&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">filler_list</span><span class="p">),</span> <span class="n">re</span><span class="o">.</span><span class="n">IGNORECASE</span><span class="p">)</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;all_ingredients.json&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">all_ingredients_text1</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-1'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-1'>#</a>
+      </div>
+      <p>In[1]:</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-2'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-2'>#</a>
+      </div>
+      <p>Clean ingredients and remove filler strings</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="n">all_ingredients_text</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">all_ingredients_text1</span><span class="p">:</span>
+    <span class="n">clean_ing</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">filler_reg</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
+    <span class="n">clean_ing</span> <span class="o">=</span> <span class="n">clean_text</span><span class="p">(</span><span class="n">clean_ing</span><span class="p">)</span>
+    <span class="n">all_ingredients_text</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">clean_ing</span><span class="p">)</span>
+
+<span class="n">splitter</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s1">&#39;[,. ]+&#39;</span><span class="p">)</span>
+<span class="n">all_words</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">ingredient</span> <span class="ow">in</span> <span class="n">all_ingredients_text</span><span class="p">:</span>
+    <span class="n">all_words</span> <span class="o">+=</span> <span class="n">re</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">splitter</span><span class="p">,</span> <span class="n">ingredient</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-3'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-3'>#</a>
+      </div>
+      <p>Transforms text into an ingredient.</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="k">def</span> <span class="nf">to_ingredient</span><span class="p">(</span><span class="n">text</span><span class="p">):</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-4'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-4'>#</a>
+      </div>
+      
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>    <span class="k">return</span> <span class="nb">frozenset</span><span class="p">(</span><span class="n">re</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s1">&#39;[,. ]+&#39;</span><span class="p">),</span> <span class="n">text</span><span class="p">))</span>
+
+
+<span class="n">all_ingredients</span> <span class="o">=</span> <span class="p">[</span><span class="n">to_ingredient</span><span class="p">(</span><span class="n">text</span><span class="p">)</span> <span class="k">for</span> <span class="n">text</span> <span class="ow">in</span> <span class="n">all_ingredients_text</span><span class="p">]</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-5'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-5'>#</a>
+      </div>
+      <p>Returns a list of candidate ingredients obtained from the original ingredient by keeping at least one of them.</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="k">def</span> <span class="nf">candidates</span><span class="p">(</span><span class="n">ingredient</span><span class="p">):</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-6'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-6'>#</a>
+      </div>
+      
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">ingredient</span><span class="p">)</span>
+    <span class="n">possible</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">ing</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="n">possible</span> <span class="o">+=</span> <span class="p">[</span><span class="nb">frozenset</span><span class="p">(</span><span class="n">combi</span><span class="p">)</span> <span class="k">for</span> <span class="n">combi</span> <span class="ow">in</span> <span class="n">itertools</span><span class="o">.</span><span class="n">combinations</span><span class="p">(</span><span class="n">ingredient</span><span class="p">,</span> <span class="n">ing</span><span class="p">)]</span>
+    <span class="k">return</span> <span class="n">possible</span>
+
+
+<span class="n">c</span> <span class="o">=</span> <span class="n">Counter</span><span class="p">(</span><span class="n">all_ingredients</span><span class="p">)</span>
+
+<span class="n">probability</span> <span class="o">=</span> <span class="n">defaultdict</span><span class="p">(</span><span class="k">lambda</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="n">c</span><span class="o">.</span><span class="n">most_common</span><span class="p">())</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-7'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-7'>#</a>
+      </div>
+      <p>In[2]:</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-8'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-8'>#</a>
+      </div>
+      <p>Returns candidate ingredients obtained from the original ingredient by substraction, largest number of</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="k">def</span> <span class="nf">candidates_increasing_distance</span><span class="p">(</span><span class="n">ingredient</span><span class="p">,</span> <span class="n">vocabulary</span><span class="p">):</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-9'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-9'>#</a>
+      </div>
+      
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>    <span class="n">ingredients</span> <span class="n">first</span><span class="o">.</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">    n = len(ingredient)</span>
+<span class="s2">    for ing in range(n - 1, 1, -1):</span>
+<span class="s2">        possible = [frozenset(combi) for combi in itertools.combinations(ingredient, ing)</span>
+<span class="s2">                    if frozenset(combi) in vocabulary]</span>
+<span class="s2">        if len(possible) &gt; 0:</span>
+<span class="s2">            return possible</span>
+<span class="s2">    return [ingredient]</span>
+
+
+<span class="s2">vocabulary = dict(c.most_common())</span>
+<span class="s2">#DIVIDER</span>
+<span class="s2">def best_replacement_increasing_distance(ingredient, vocabulary):</span>
+<span class="s2">    &quot;&quot;&quot;</span><span class="n">Computes</span> <span class="n">best</span> <span class="n">replacement</span> <span class="n">ingredient</span> <span class="k">for</span> <span class="n">a</span> <span class="n">given</span> <span class="nb">input</span><span class="o">.</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">    return max(candidates_increasing_distance(ingredient, vocabulary), key=lambda w: vocabulary[w])</span>
+
+
+<span class="s2">df1 = pd.DataFrame([(text,</span>
+<span class="s2">                     &#39;&#39;.join(best_replacement_increasing_distance(to_ingredient(text), vocabulary)))</span>
+<span class="s2">                    for text in sorted(set(all_ingredients_text), key=len, reverse=True)],</span>
+<span class="s2">                   columns=[&#39;original ingredient&#39;, &#39;improved ingredient&#39;])</span>
+<span class="s2">#DIVIDER</span>
+<span class="s2">def improve_ingredients(ingredient_list):</span>
+<span class="s2">#DIVIDER</span>
+<span class="s2">    better_ingredients = []</span>
+<span class="s2">    for ingredient in ingredient_list:</span>
+<span class="s2">        cleaned_ingredient = clean_text(ingredient)</span>
+<span class="s2">        if vocabulary[to_ingredient(cleaned_ingredient)] &lt;= 100:</span>
+<span class="s2">            better_ingredients.append(&#39;&#39;.join(best_replacement_increasing_distance(</span>
+<span class="s2">                to_ingredient(cleaned_ingredient), vocabulary)))</span>
+<span class="s2">        else:</span>
+<span class="s2">            better_ingredients.append(cleaned_ingredient)</span>
+<span class="s2">    return better_ingredients</span>
+
+
+<span class="s2">better_ingredients_text = improve_ingredients(all_ingredients_text)</span>
+
+<span class="s2">d = {&#39;original&#39;: all_ingredients_text1, &#39;better&#39;: better_ingredients_text}</span>
+
+<span class="s2">df = pd.DataFrame(d)</span>
+<span class="s2">#DIVIDER</span>
+
+<span class="s2">count = Counter(better_ingredients_text)</span>
+<span class="s2">ingredients_df = pd.DataFrame.from_dict(count, orient=&#39;index&#39;).reset_index().sort_values(0, ascending=False)</span>
+
+<span class="s2">head = ingredients_df.head(1000)</span>
+<span class="s2">#DIVIDER</span>
+
+</pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-10'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-10'>#</a>
+      </div>
+      
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-11'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-11'>#</a>
+      </div>
+      <p>Improves the list of ingredients given as input.</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-12'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-12'>#</a>
+      </div>
+      
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-13'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-13'>#</a>
+      </div>
+      <p>In[2]:</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-14'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-14'>#</a>
+      </div>
+      <p>ingredients_df.to_csv(&lsquo;ingredients.csv&rsquo;, index = False, header=True)</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+</div>
+</body>

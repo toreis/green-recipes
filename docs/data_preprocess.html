@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <title>data_preprocess.py</title>
+  <link rel="stylesheet" href="pycco.css">
+</head>
+<body>
+<div id='container'>
+  <div id="background"></div>
+  <div class='section'>
+    <div class='docs'><h1>data_preprocess.py</h1></div>
+  </div>
+  <div class='clearall'>
+  <div class='section' id='section-0'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-0'>#</a>
+      </div>
+      
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">os</span>
+
+
+<span class="n">PATH</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">()</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-1'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-1'>#</a>
+      </div>
+      <p>Compiles the CO2 reference list for all languages by adding synonyms and substitutes</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="k">def</span> <span class="nf">compile_ref_list</span><span class="p">(</span><span class="n">lang</span><span class="p">):</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-2'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-2'>#</a>
+      </div>
+      
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-3'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-3'>#</a>
+      </div>
+      <p>Fetching all relevant data</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>    <span class="n">ingred_cal</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="n">PATH</span> <span class="o">+</span> <span class="sa">r</span><span class="s1">&#39;\data\ingredients_reference.xlsx&#39;</span><span class="p">,</span> <span class="n">sheet_name</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">apply</span> \
+        <span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">if</span> <span class="n">x</span><span class="o">.</span><span class="n">dtype</span> <span class="o">==</span> <span class="s2">&quot;object&quot;</span> <span class="k">else</span> <span class="n">x</span><span class="p">)</span>
+    <span class="n">plurals</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="n">PATH</span> <span class="o">+</span> <span class="sa">r</span><span class="s1">&#39;\data\ingredients_reference.xlsx&#39;</span><span class="p">,</span> <span class="n">sheet_name</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">apply</span> \
+        <span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">if</span> <span class="n">x</span><span class="o">.</span><span class="n">dtype</span> <span class="o">==</span> <span class="s2">&quot;object&quot;</span> <span class="k">else</span> <span class="n">x</span><span class="p">)</span>
+    <span class="n">synonyms</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="n">PATH</span> <span class="o">+</span> <span class="sa">r</span><span class="s1">&#39;\data\ingredients_reference.xlsx&#39;</span><span class="p">,</span> <span class="n">sheet_name</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span><span class="o">.</span><span class="n">apply</span> \
+        <span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">if</span> <span class="n">x</span><span class="o">.</span><span class="n">dtype</span> <span class="o">==</span> <span class="s2">&quot;object&quot;</span> <span class="k">else</span> <span class="n">x</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-4'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-4'>#</a>
+      </div>
+      <p>Add English ingredient description as a key</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>    <span class="n">ingred_cal</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;en_key&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+    <span class="n">ingred_cal</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="s2">&quot;en_key&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ingred_cal</span><span class="p">[</span><span class="s2">&quot;en&quot;</span><span class="p">]</span>
+
+    <span class="n">df_lang</span> <span class="o">=</span> <span class="n">ingred_cal</span><span class="p">[</span>
+        <span class="p">[</span><span class="s2">&quot;en_key&quot;</span><span class="p">,</span> <span class="n">lang</span><span class="p">,</span> <span class="s2">&quot;type&quot;</span><span class="p">,</span> <span class="s2">&quot;co2&quot;</span><span class="p">,</span> <span class="s2">&quot;classification&quot;</span><span class="p">,</span> <span class="s2">&quot;attribute&quot;</span><span class="p">,</span> <span class="s2">&quot;variety&quot;</span><span class="p">]</span>
+    <span class="p">]</span>
+    <span class="n">df_lang</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="s2">&quot;lower&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_lang</span><span class="p">[</span><span class="n">lang</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-5'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-5'>#</a>
+      </div>
+      <p>Add ingredient description of selected language as a key</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>    <span class="n">df_lang</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;lang_key&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+    <span class="n">df_lang</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="s2">&quot;lang_key&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_lang</span><span class="p">[</span><span class="n">lang</span><span class="p">]</span>
+
+    <span class="n">plurals_lang</span> <span class="o">=</span> <span class="n">plurals</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">plurals</span><span class="p">[</span><span class="s2">&quot;language&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="n">lang</span><span class="p">]</span>
+    <span class="n">plurals_lang</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="s2">&quot;lower&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">plurals_lang</span><span class="p">[</span><span class="s2">&quot;singular&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-6'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-6'>#</a>
+      </div>
+      <p>Merge with plurals of ingredients</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>    <span class="n">df2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span>
+        <span class="n">df_lang</span><span class="p">,</span> <span class="n">plurals_lang</span><span class="p">,</span> <span class="n">left_on</span><span class="o">=</span><span class="s2">&quot;lower&quot;</span><span class="p">,</span> <span class="n">right_on</span><span class="o">=</span><span class="s2">&quot;lower&quot;</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s2">&quot;inner&quot;</span>
+    <span class="p">)[</span>
+        <span class="p">[</span>
+            <span class="s2">&quot;en_key&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;lang_key&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;plural&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;type&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;co2&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;classification&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;attribute&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;variety&quot;</span><span class="p">,</span>
+        <span class="p">]</span>
+    <span class="p">]</span>
+    <span class="n">df2</span> <span class="o">=</span> <span class="n">df2</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;plural&quot;</span><span class="p">:</span> <span class="n">lang</span><span class="p">})</span>
+
+    <span class="n">synonyms_lang</span> <span class="o">=</span> <span class="n">synonyms</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">synonyms</span><span class="p">[</span><span class="s2">&quot;language&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="n">lang</span><span class="p">]</span>
+    <span class="n">synonyms_lang</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="s2">&quot;lower&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">synonyms_lang</span><span class="p">[</span><span class="s2">&quot;source&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-7'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-7'>#</a>
+      </div>
+      <p>Merge with synonyms of ingredients</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>    <span class="n">df3</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span>
+        <span class="n">df_lang</span><span class="p">,</span> <span class="n">synonyms_lang</span><span class="p">,</span> <span class="n">left_on</span><span class="o">=</span><span class="s2">&quot;lower&quot;</span><span class="p">,</span> <span class="n">right_on</span><span class="o">=</span><span class="s2">&quot;lower&quot;</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s2">&quot;inner&quot;</span>
+    <span class="p">)[</span>
+        <span class="p">[</span>
+            <span class="s2">&quot;en_key&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;lang_key&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;target&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;type&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;co2&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;classification&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;attribute&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;variety&quot;</span><span class="p">,</span>
+        <span class="p">]</span>
+    <span class="p">]</span>
+    <span class="n">df3</span> <span class="o">=</span> <span class="n">df3</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;target&quot;</span><span class="p">:</span> <span class="n">lang</span><span class="p">})</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-8'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-8'>#</a>
+      </div>
+      <p>Append all reference lists</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>    <span class="n">df_lang</span> <span class="o">=</span> <span class="n">df_lang</span><span class="p">[</span>
+        <span class="p">[</span>
+            <span class="s2">&quot;en_key&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;lang_key&quot;</span><span class="p">,</span>
+            <span class="n">lang</span><span class="p">,</span>
+            <span class="s2">&quot;type&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;co2&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;classification&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;attribute&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;variety&quot;</span><span class="p">,</span>
+        <span class="p">]</span>
+    <span class="p">]</span>
+    <span class="n">df_lang</span> <span class="o">=</span> <span class="n">df_lang</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">df2</span><span class="p">)</span>
+    <span class="n">df_lang</span> <span class="o">=</span> <span class="n">df_lang</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">df3</span><span class="p">)</span>
+
+    <span class="n">df_lang</span> <span class="o">=</span> <span class="n">df_lang</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="n">lang</span><span class="p">:</span> <span class="s2">&quot;ref&quot;</span><span class="p">})</span>
+    <span class="n">df_lang</span> <span class="o">=</span> <span class="n">df_lang</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">df_lang</span>
+
+
+<span class="n">languages</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;en&quot;</span><span class="p">,</span> <span class="s2">&quot;de&quot;</span><span class="p">,</span> <span class="s2">&quot;it&quot;</span><span class="p">]</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-9'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-9'>#</a>
+      </div>
+      <p>Create a dictionary with reference lists for all languages and save it as a csv</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="n">reference_lists</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="k">for</span> <span class="n">language</span> <span class="ow">in</span> <span class="n">languages</span><span class="p">:</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">df</span> <span class="o">=</span> <span class="n">compile_ref_list</span><span class="p">(</span><span class="n">language</span><span class="p">)</span>
+        <span class="n">reference_lists</span><span class="p">[</span><span class="n">language</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span>
+
+        <span class="n">name</span> <span class="o">=</span> <span class="n">PATH</span> <span class="o">+</span> <span class="sa">r</span><span class="s2">&quot;\data\reference_list_</span><span class="si">{}</span><span class="s2">.csv&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">language</span><span class="p">)</span>
+        <span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="k">pass</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-10'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-10'>#</a>
+      </div>
+      <p>Compiles food density list from the USDA FoodData list</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="k">def</span> <span class="nf">create_density_list</span><span class="p">():</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-11'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-11'>#</a>
+      </div>
+      
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>    <span class="n">food</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">PATH</span> <span class="o">+</span> <span class="sa">r</span><span class="s2">&quot;\FoodData_legacy\food.csv&quot;</span><span class="p">)</span>
+    <span class="n">food_portion</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">PATH</span> <span class="o">+</span> <span class="sa">r</span><span class="s2">&quot;\FoodData_legacy\food_portion.csv&quot;</span><span class="p">)</span>
+
+    <span class="n">joined_ingredient_list</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">food_portion</span><span class="p">,</span> <span class="n">food</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="s2">&quot;fdc_id&quot;</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s2">&quot;left&quot;</span><span class="p">)</span>
+
+    <span class="n">clean_list</span> <span class="o">=</span> <span class="n">joined_ingredient_list</span><span class="p">[[</span><span class="s2">&quot;description&quot;</span><span class="p">,</span> <span class="s2">&quot;gram_weight&quot;</span><span class="p">,</span> <span class="s2">&quot;modifier&quot;</span><span class="p">]]</span>
+
+    <span class="n">clean_list</span> <span class="o">=</span> <span class="n">clean_list</span><span class="p">[</span><span class="n">clean_list</span><span class="p">[</span><span class="s2">&quot;modifier&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">([</span><span class="s2">&quot;cup&quot;</span><span class="p">,</span> <span class="s2">&quot;tbsp&quot;</span><span class="p">,</span> <span class="s2">&quot;tsp&quot;</span><span class="p">])]</span>
+
+    <span class="n">clean_list</span><span class="p">[</span><span class="s2">&quot;ingredient&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="n">clean_list</span><span class="p">[</span><span class="s2">&quot;description&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;,&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">str</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+    <span class="p">)</span>
+    <span class="n">clean_list</span><span class="p">[</span><span class="s2">&quot;attribute&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="n">clean_list</span><span class="p">[</span><span class="s2">&quot;description&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;,&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">str</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+    <span class="p">)</span>
+    <span class="n">clean_list</span> <span class="o">=</span> <span class="n">clean_list</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+
+    <span class="n">grouped_multiple</span> <span class="o">=</span> <span class="n">clean_list</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s2">&quot;ingredient&quot;</span><span class="p">,</span> <span class="s2">&quot;attribute&quot;</span><span class="p">,</span> <span class="s2">&quot;modifier&quot;</span><span class="p">])[</span>
+        <span class="s2">&quot;gram_weight&quot;</span>
+    <span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+    <span class="n">grouped_multiple</span> <span class="o">=</span> <span class="n">grouped_multiple</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+
+    <span class="n">grouped_multiple</span><span class="p">[</span><span class="s2">&quot;density&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span>
+        <span class="n">grouped_multiple</span><span class="p">[</span><span class="s2">&quot;modifier&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;cup&quot;</span><span class="p">,</span>
+        <span class="n">grouped_multiple</span><span class="p">[</span><span class="s2">&quot;gram_weight&quot;</span><span class="p">]</span> <span class="o">/</span> <span class="mi">240</span><span class="p">,</span>
+        <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span>
+            <span class="n">grouped_multiple</span><span class="p">[</span><span class="s2">&quot;modifier&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;tsp&quot;</span><span class="p">,</span>
+            <span class="n">grouped_multiple</span><span class="p">[</span><span class="s2">&quot;gram_weight&quot;</span><span class="p">]</span> <span class="o">/</span> <span class="mf">4.9</span><span class="p">,</span>
+            <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span>
+                <span class="n">grouped_multiple</span><span class="p">[</span><span class="s2">&quot;modifier&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;tbsp&quot;</span><span class="p">,</span>
+                <span class="n">grouped_multiple</span><span class="p">[</span><span class="s2">&quot;gram_weight&quot;</span><span class="p">]</span> <span class="o">/</span> <span class="mf">14.7</span><span class="p">,</span>
+                <span class="n">grouped_multiple</span><span class="p">[</span><span class="s2">&quot;gram_weight&quot;</span><span class="p">],</span>
+            <span class="p">),</span>
+        <span class="p">),</span>
+    <span class="p">)</span>
+
+    <span class="n">density_list</span> <span class="o">=</span> <span class="n">grouped_multiple</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s2">&quot;ingredient&quot;</span><span class="p">,</span> <span class="s2">&quot;attribute&quot;</span><span class="p">])[</span>
+        <span class="s2">&quot;density&quot;</span>
+    <span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+    <span class="n">density_list</span> <span class="o">=</span> <span class="n">density_list</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+
+    <span class="n">density_avg</span> <span class="o">=</span> <span class="n">density_list</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;ingredient&quot;</span><span class="p">)[</span><span class="s2">&quot;density&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+    <span class="n">density_list</span> <span class="o">=</span> <span class="n">density_list</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s2">&quot;ingredient&quot;</span><span class="p">)</span>
+    <span class="n">density_list</span><span class="p">[</span><span class="s2">&quot;density_avg&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">density_avg</span>
+    <span class="n">density_list</span> <span class="o">=</span> <span class="n">density_list</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+
+    <span class="n">density_list</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;ingredient_combined&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+    <span class="n">density_list</span><span class="p">[</span><span class="s2">&quot;ingredient_combined&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="n">density_list</span><span class="p">[[</span><span class="s2">&quot;attribute&quot;</span><span class="p">,</span> <span class="s2">&quot;ingredient&quot;</span><span class="p">]]</span><span class="o">.</span><span class="n">agg</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+    <span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">density_list</span>
+
+</pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+</div>
+</body>

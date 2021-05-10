@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <title>scraper_parser.py</title>
+  <link rel="stylesheet" href="pycco.css">
+</head>
+<body>
+<div id='container'>
+  <div id="background"></div>
+  <div class='section'>
+    <div class='docs'><h1>scraper_parser.py</h1></div>
+  </div>
+  <div class='clearall'>
+  <div class='section' id='section-0'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-0'>#</a>
+      </div>
+      
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">allrecipes</span> <span class="kn">import</span> <span class="n">AllRecipes</span>
+<span class="kn">from</span> <span class="nn">fooby</span> <span class="kn">import</span> <span class="n">Fooby</span>
+<span class="kn">from</span> <span class="nn">chefkoch</span> <span class="kn">import</span> <span class="n">Chefkoch</span>
+<span class="kn">from</span> <span class="nn">local_file_parser</span> <span class="kn">import</span> <span class="n">ParseString</span>
+<span class="kn">from</span> <span class="nn">utilities</span> <span class="kn">import</span> <span class="n">Quantity</span>
+<span class="kn">from</span> <span class="nn">recipe_scrapers</span> <span class="kn">import</span> <span class="n">scrape_me</span>
+<span class="kn">from</span> <span class="nn">co2_connect</span> <span class="kn">import</span> <span class="n">co2_add</span>
+<span class="kn">import</span> <span class="nn">database_queries</span>
+
+<span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">import</span> <span class="nn">re</span>
+<span class="kn">import</span> <span class="nn">time</span>
+
+
+<span class="n">SCRAPERS</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="n">AllRecipes</span><span class="o">.</span><span class="n">host</span><span class="p">():</span> <span class="n">AllRecipes</span><span class="p">,</span>
+    <span class="n">Fooby</span><span class="o">.</span><span class="n">host</span><span class="p">():</span> <span class="n">Fooby</span><span class="p">,</span>
+    <span class="n">Chefkoch</span><span class="o">.</span><span class="n">host</span><span class="p">():</span> <span class="n">Chefkoch</span><span class="p">,</span>
+    <span class="n">ParseString</span><span class="o">.</span><span class="n">host</span><span class="p">():</span> <span class="n">ParseString</span>
+<span class="p">}</span>
+
+<span class="n">HEADERS</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;User-Agent&#39;</span><span class="p">:</span> <span class="s1">&#39;Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.0.7) Gecko/2009021910 Firefox/3.0.7&#39;</span>
+<span class="p">}</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-1'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-1'>#</a>
+      </div>
+      <p>Divides an URL into its structure.</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="k">def</span> <span class="nf">url_path_to_dict</span><span class="p">(</span><span class="n">url_path</span><span class="p">):</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-2'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-2'>#</a>
+      </div>
+      
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>    <span class="n">pattern</span> <span class="o">=</span> <span class="p">(</span><span class="sa">r</span><span class="s1">&#39;^&#39;</span>
+               <span class="sa">r</span><span class="s1">&#39;((?P&lt;schema&gt;.+?)://)?&#39;</span>
+               <span class="sa">r</span><span class="s1">&#39;(?P&lt;host&gt;.*?)&#39;</span>
+               <span class="sa">r</span><span class="s1">&#39;(?P&lt;path&gt;/.*?)?&#39;</span>
+               <span class="sa">r</span><span class="s1">&#39;(?P&lt;query&gt;[?].*?)?&#39;</span>
+               <span class="sa">r</span><span class="s1">&#39;$&#39;</span>
+               <span class="p">)</span>
+    <span class="n">regex</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">pattern</span><span class="p">)</span>
+    <span class="n">matches</span> <span class="o">=</span> <span class="n">regex</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">url_path</span><span class="p">)</span>
+    <span class="n">url_dict</span> <span class="o">=</span> <span class="n">matches</span><span class="o">.</span><span class="n">groupdict</span><span class="p">()</span> <span class="k">if</span> <span class="n">matches</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="k">else</span> <span class="kc">None</span>
+
+    <span class="k">return</span> <span class="n">url_dict</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-3'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-3'>#</a>
+      </div>
+      <p>Selects correct scraper for the given URL or string.</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="k">def</span> <span class="nf">recipe_scraper</span><span class="p">(</span><span class="n">url_path</span><span class="p">):</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-4'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-4'>#</a>
+      </div>
+      
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>    <span class="k">try</span><span class="p">:</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-5'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-5'>#</a>
+      </div>
+      <p>Check if input string is an URL</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>        <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url_path</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">HEADERS</span><span class="p">)</span>
+        <span class="n">is_url</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="n">is_url</span> <span class="o">=</span> <span class="kc">False</span>
+
+    <span class="k">if</span> <span class="n">is_url</span> <span class="ow">is</span> <span class="kc">True</span><span class="p">:</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-6'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-6'>#</a>
+      </div>
+      <p>If input string is an URL select correct scraper/parser</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>        <span class="n">url_path</span> <span class="o">=</span> <span class="n">url_path</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;://www.&#39;</span><span class="p">,</span> <span class="s1">&#39;://&#39;</span><span class="p">)</span>
+        <span class="n">host</span> <span class="o">=</span> <span class="n">url_path_to_dict</span><span class="p">(</span><span class="n">url_path</span><span class="p">)[</span><span class="s1">&#39;host&#39;</span><span class="p">]</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">SCRAPERS</span><span class="p">[</span><span class="n">host</span><span class="p">](</span><span class="n">url_path</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">scrape_me</span><span class="p">(</span><span class="n">url_path</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-7'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-7'>#</a>
+      </div>
+      <p>If input string is not an URL select string parser</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>        <span class="n">x</span> <span class="o">=</span> <span class="n">url_path_to_dict</span><span class="p">(</span><span class="s1">&#39;string_parser&#39;</span><span class="p">)</span>
+        <span class="n">soup</span> <span class="o">=</span> <span class="n">url_path</span>
+        <span class="k">return</span> <span class="n">SCRAPERS</span><span class="p">[</span><span class="n">x</span><span class="p">[</span><span class="s1">&#39;host&#39;</span><span class="p">]](</span><span class="n">soup</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-8'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-8'>#</a>
+      </div>
+      <p>Parses the scraped recipe and saves it in a unified format.</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="k">def</span> <span class="nf">recipe_parser</span><span class="p">(</span><span class="n">url_path</span><span class="p">,</span> <span class="n">recipe_id</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-9'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-9'>#</a>
+      </div>
+      
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>    <span class="k">try</span><span class="p">:</span>
+        <span class="n">recipe_obj</span> <span class="o">=</span> <span class="n">recipe_scraper</span><span class="p">(</span><span class="n">url_path</span><span class="p">)</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="n">recipe_obj</span> <span class="o">=</span> <span class="n">scrape_me</span><span class="p">(</span><span class="n">url_path</span><span class="p">,</span> <span class="n">wild_mode</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="n">recipe</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;recipe_id&#39;</span><span class="p">:</span> <span class="n">recipe_id</span><span class="p">,</span>
+              <span class="s1">&#39;URL&#39;</span><span class="p">:</span> <span class="n">url_path</span><span class="p">,</span>
+              <span class="s1">&#39;title&#39;</span><span class="p">:</span> <span class="n">recipe_obj</span><span class="o">.</span><span class="n">title</span><span class="p">()}</span>
+    <span class="n">ingredients</span> <span class="o">=</span> <span class="n">recipe_obj</span><span class="o">.</span><span class="n">ingredients</span><span class="p">()</span>
+
+    <span class="n">ingredients_qty</span> <span class="o">=</span> <span class="nb">list</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">ing</span> <span class="ow">in</span> <span class="n">ingredients</span><span class="p">:</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-10'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-10'>#</a>
+      </div>
+      <p>If ingredient is not yet split up into quantity and ingredient do so</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">ing</span><span class="p">,</span> <span class="nb">dict</span><span class="p">):</span>
+            <span class="n">quantity_obj</span> <span class="o">=</span> <span class="n">Quantity</span><span class="p">(</span><span class="n">ing</span><span class="p">)</span>
+            <span class="n">ing_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;ingredient&#39;</span><span class="p">:</span> <span class="n">quantity_obj</span><span class="o">.</span><span class="n">ing</span><span class="p">(),</span>
+                        <span class="s1">&#39;quantity&#39;</span><span class="p">:</span> <span class="n">quantity_obj</span><span class="o">.</span><span class="n">qty_ing</span><span class="p">()}</span>
+            <span class="n">ingredients_qty</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ing_dict</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">ingredients_qty</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ing</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-11'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-11'>#</a>
+      </div>
+      <p>Build recipe dictionary</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>    <span class="n">recipe</span><span class="p">[</span><span class="s1">&#39;ingredients&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ingredients_qty</span>
+    <span class="n">recipe</span><span class="p">[</span><span class="s1">&#39;instructions&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">recipe_obj</span><span class="o">.</span><span class="n">instructions</span><span class="p">()</span>
+    <span class="n">recipe</span><span class="p">[</span><span class="s1">&#39;image&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">recipe_obj</span><span class="o">.</span><span class="n">image</span><span class="p">()</span>
+    <span class="n">recipe</span><span class="p">[</span><span class="s1">&#39;totalTime&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">recipe_obj</span><span class="o">.</span><span class="n">total_time</span><span class="p">()</span>
+    <span class="n">recipe</span><span class="p">[</span><span class="s1">&#39;recipeYield&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">recipe_obj</span><span class="o">.</span><span class="n">yields</span><span class="p">()</span>
+    <span class="n">recipe</span><span class="p">[</span><span class="s1">&#39;nutrients&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">recipe_obj</span><span class="o">.</span><span class="n">nutrients</span><span class="p">()</span>
+    <span class="n">recipe</span><span class="p">[</span><span class="s1">&#39;language&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">recipe_obj</span><span class="o">.</span><span class="n">language</span><span class="p">()</span>
+    <span class="n">recipe</span><span class="p">[</span><span class="s1">&#39;scraped&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">ctime</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">())</span>
+
+    <span class="k">return</span> <span class="n">recipe</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-12'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-12'>#</a>
+      </div>
+      <h3><span id="for-scraping-and-saving-directly-to-the-database" href="for-scraping-and-saving-directly-to-the-database"> For scraping and saving directly to the database </span></h3>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-13'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-13'>#</a>
+      </div>
+      <p>Adds new URLs to be scraped to the database</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="k">def</span> <span class="nf">add_urls_to_db</span><span class="p">(</span><span class="n">URLs</span><span class="p">):</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-14'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-14'>#</a>
+      </div>
+      
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>    <span class="k">for</span> <span class="n">URL</span> <span class="ow">in</span> <span class="n">URLs</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">URL</span><span class="p">)</span>
+        <span class="n">database_queries</span><span class="o">.</span><span class="n">insert_recipe_URL</span><span class="p">(</span><span class="n">URL</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-15'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-15'>#</a>
+      </div>
+      <p>Scrapes and parses recipe of URL for specified recipe_id</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="k">def</span> <span class="nf">scrape_parse_url</span><span class="p">(</span><span class="n">recipe_id</span><span class="p">):</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-16'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-16'>#</a>
+      </div>
+      
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>    <span class="n">URL</span> <span class="o">=</span> <span class="n">database_queries</span><span class="o">.</span><span class="n">get_URL_by_id</span><span class="p">(</span><span class="n">recipe_id</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">URL</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;no URL for this id&#39;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">URL</span><span class="p">)</span>
+        <span class="n">recipe</span> <span class="o">=</span> <span class="n">recipe_parser</span><span class="p">(</span><span class="n">URL</span><span class="p">,</span> <span class="n">recipe_id</span><span class="p">)</span>
+        <span class="n">database_queries</span><span class="o">.</span><span class="n">update_recipe</span><span class="p">(</span><span class="n">recipe</span><span class="p">,</span> <span class="n">recipe_id</span><span class="p">)</span>
+
+        <span class="nb">print</span><span class="p">(</span><span class="n">recipe</span><span class="p">[</span><span class="s1">&#39;recipe_id&#39;</span><span class="p">],</span> <span class="n">recipe</span><span class="p">[</span><span class="s1">&#39;title&#39;</span><span class="p">])</span>
+
+        <span class="n">recipe_co2</span> <span class="o">=</span> <span class="n">co2_add</span><span class="p">(</span><span class="n">recipe</span><span class="p">)</span>
+        <span class="n">database_queries</span><span class="o">.</span><span class="n">update_recipe_co2</span><span class="p">(</span><span class="n">recipe_co2</span><span class="p">,</span> <span class="n">recipe_id</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-17'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-17'>#</a>
+      </div>
+      <p>Update CO2 values for selected recipe</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="k">def</span> <span class="nf">parse_recipe_id</span><span class="p">(</span><span class="n">recipe_id</span><span class="p">):</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-18'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-18'>#</a>
+      </div>
+      
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>    <span class="n">recipe</span> <span class="o">=</span> <span class="n">database_queries</span><span class="o">.</span><span class="n">get_recipe_by_id</span><span class="p">(</span><span class="n">recipe_id</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">recipe</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">recipe</span><span class="p">[</span><span class="s1">&#39;recipe_id&#39;</span><span class="p">],</span> <span class="n">recipe</span><span class="p">[</span><span class="s1">&#39;title&#39;</span><span class="p">])</span>
+
+        <span class="n">recipe_co2</span> <span class="o">=</span> <span class="n">co2_add</span><span class="p">(</span><span class="n">recipe</span><span class="p">)</span>
+        <span class="n">database_queries</span><span class="o">.</span><span class="n">update_recipe_co2</span><span class="p">(</span><span class="n">recipe_co2</span><span class="p">,</span> <span class="n">recipe_id</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">scrape_parse_url</span><span class="p">(</span><span class="n">recipe_id</span><span class="p">)</span>
+
+</pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+</div>
+</body>

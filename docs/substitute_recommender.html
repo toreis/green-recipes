@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <title>substitute_recommender.py</title>
+  <link rel="stylesheet" href="pycco.css">
+</head>
+<body>
+<div id='container'>
+  <div id="background"></div>
+  <div class='section'>
+    <div class='docs'><h1>substitute_recommender.py</h1></div>
+  </div>
+  <div class='clearall'>
+  <div class='section' id='section-0'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-0'>#</a>
+      </div>
+      
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="kn">from</span> <span class="nn">co2_connect</span> <span class="kn">import</span> <span class="n">co2_add</span>
+<span class="kn">from</span> <span class="nn">scraper_parser</span> <span class="kn">import</span> <span class="n">recipe_parser</span>
+<span class="kn">from</span> <span class="nn">utilities</span> <span class="kn">import</span> <span class="n">recipe_to_df</span>
+<span class="kn">import</span> <span class="nn">database_queries</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-1'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-1'>#</a>
+      </div>
+      <p>Determines ingredients with high emissions that should be replaced</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="k">def</span> <span class="nf">list_replacement_candidates_of_recipe</span><span class="p">(</span><span class="n">recipe_df</span><span class="p">,</span> <span class="n">co2_threshold</span><span class="o">=</span><span class="mi">2</span><span class="p">):</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-2'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-2'>#</a>
+      </div>
+      
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>    <span class="n">df</span> <span class="o">=</span> <span class="n">recipe_df</span>
+
+    <span class="n">replacement_candidates</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;co2kg&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">co2_threshold</span><span class="p">]</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span>
+        <span class="n">by</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;co2&#39;</span><span class="p">],</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span>
+    <span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">replacement_candidates</span><span class="p">[[</span><span class="s1">&#39;ingredient_clean&#39;</span><span class="p">,</span> <span class="s1">&#39;co2&#39;</span><span class="p">,</span> <span class="s1">&#39;weight&#39;</span><span class="p">,</span> <span class="s1">&#39;co2kg&#39;</span><span class="p">]]</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-3'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-3'>#</a>
+      </div>
+      <p>Finds substitutes for the replacement candidate.</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="k">def</span> <span class="nf">list_substitutes_for_ingredient</span><span class="p">(</span><span class="n">candidate</span><span class="p">,</span> <span class="n">substitutes</span><span class="p">):</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-4'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-4'>#</a>
+      </div>
+      <p>Candidate is the whole row from the ingredients df, substitutes is substitutes dictionary</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>    
+    <span class="n">ingredient_clean</span> <span class="o">=</span> <span class="n">candidate</span><span class="p">[</span><span class="s1">&#39;ingredient_clean&#39;</span><span class="p">]</span>
+    <span class="n">co2kg</span> <span class="o">=</span> <span class="n">candidate</span><span class="p">[</span><span class="s1">&#39;co2kg&#39;</span><span class="p">]</span>
+
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">substitute_candidates</span> <span class="o">=</span> <span class="n">substitutes</span><span class="p">[</span><span class="n">ingredient_clean</span><span class="p">]</span>
+        <span class="n">substitute_candidates_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+            <span class="n">substitute_candidates</span><span class="p">,</span>
+            <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;ingredient&#39;</span><span class="p">,</span> <span class="s1">&#39;score&#39;</span><span class="p">,</span> <span class="s1">&#39;co2kg&#39;</span><span class="p">,</span> <span class="s1">&#39;attribute&#39;</span><span class="p">,</span> <span class="s1">&#39;classification&#39;</span><span class="p">],</span>
+        <span class="p">)</span>
+        <span class="n">substitute_candidates_df</span> <span class="o">=</span> <span class="n">substitute_candidates_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span>
+            <span class="n">substitute_candidates_df</span><span class="p">[</span><span class="s1">&#39;co2kg&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">co2kg</span>
+        <span class="p">]</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">decimals</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
+        <span class="n">substitute_candidates_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
+
+    <span class="k">return</span> <span class="n">substitute_candidates_df</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-5'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-5'>#</a>
+      </div>
+      <p>Calculate the co2 footprint reduction of the recipe for the chosen substitution</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre><span class="k">def</span> <span class="nf">compute_footprint_reduction</span><span class="p">(</span><span class="n">recipe</span><span class="p">,</span> <span class="n">ingredient</span><span class="p">,</span> <span class="n">substitute</span><span class="p">):</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-6'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-6'>#</a>
+      </div>
+      
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>    <span class="n">substitute_co2kg</span> <span class="o">=</span> <span class="n">substitute</span><span class="p">[</span><span class="s1">&#39;co2kg&#39;</span><span class="p">]</span>
+    <span class="n">substitute_co2</span> <span class="o">=</span> <span class="n">candidate</span><span class="p">[</span><span class="s1">&#39;weight&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="n">substitute_co2kg</span> <span class="o">/</span> <span class="mi">1000</span>
+
+    <span class="n">co2_saving</span> <span class="o">=</span> <span class="n">ingredient</span><span class="p">[</span><span class="s1">&#39;co2&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="n">substitute_co2</span>
+    <span class="n">co2_total_orig</span> <span class="o">=</span> <span class="n">recipe</span><span class="p">[</span><span class="s1">&#39;co2_total&#39;</span><span class="p">]</span>
+    <span class="n">co2_total_sub</span> <span class="o">=</span> <span class="n">co2_total_orig</span> <span class="o">-</span> <span class="n">co2_saving</span>
+
+    <span class="k">return</span> <span class="nb">round</span><span class="p">(</span><span class="mi">100</span> <span class="o">-</span> <span class="n">co2_total_sub</span> <span class="o">/</span> <span class="n">co2_total_orig</span> <span class="o">*</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="kn">import</span> <span class="nn">json</span>
+    <span class="kn">import</span> <span class="nn">sys</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-7'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-7'>#</a>
+      </div>
+      <h3><span id="demo-recipe-url" href="demo-recipe-url"> Demo recipe URL </span></h3>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-8'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-8'>#</a>
+      </div>
+      <p>String can be an URL or all ingredients in text form (delimited by &lsquo;;&rsquo; or &lsquo;\n&rsquo;)
+From user input on the web application</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>    
+    <span class="n">string</span> <span class="o">=</span> <span class="s1">&#39;https://fooby.ch/en/recipes/19371/asian-grilled-roast-pork-?startAuto1=0&#39;</span>
+
+    <span class="n">recipe</span> <span class="o">=</span> <span class="n">recipe_parser</span><span class="p">(</span><span class="n">string</span><span class="p">)</span>
+    <span class="n">recipe_co2</span> <span class="o">=</span> <span class="n">co2_add</span><span class="p">(</span><span class="n">recipe</span><span class="p">)</span></pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+  <div class='section' id='section-9'>
+    <div class='docs'>
+      <div class='octowrap'>
+        <a class='octothorpe' href='#section-9'>#</a>
+      </div>
+      <p>Alternatively load recipe form database to be analyzed</p>
+    </div>
+    <div class='code'>
+      <div class="highlight"><pre>    <span class="n">df</span> <span class="o">=</span> <span class="n">recipe_to_df</span><span class="p">(</span><span class="n">recipe_co2</span><span class="p">)</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">decimals</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;CO2 emissions and weights of ingredients of the parsed recipe:&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">[[</span><span class="s1">&#39;ingredient_clean&#39;</span><span class="p">,</span> <span class="s1">&#39;co2&#39;</span><span class="p">,</span> <span class="s1">&#39;weight&#39;</span><span class="p">,</span> <span class="s1">&#39;co2kg&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">to_string</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;substitutes.json&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">data</span><span class="p">:</span>
+        <span class="n">substitute_dict</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+
+    <span class="n">ingredients</span> <span class="o">=</span> <span class="n">list_replacement_candidates_of_recipe</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">ingredients</span><span class="o">.</span><span class="n">empty</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;No ingredients with high emissions that should be replaced.&#39;</span><span class="p">)</span>
+        <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+
+    <span class="n">candidate</span> <span class="o">=</span> <span class="n">ingredients</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">substitute_candidates_df</span> <span class="o">=</span> <span class="n">list_substitutes_for_ingredient</span><span class="p">(</span>
+        <span class="n">candidate</span><span class="p">,</span> <span class="n">substitute_dict</span>
+    <span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">substitute_candidates_df</span><span class="o">.</span><span class="n">size</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Alternatives for </span><span class="si">{}</span><span class="s1"> with lower CO2 emissions:&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">candidate</span><span class="p">[</span><span class="s1">&#39;ingredient_clean&#39;</span><span class="p">]))</span>
+        
+        <span class="nb">print</span><span class="p">(</span><span class="n">substitute_candidates_df</span><span class="o">.</span><span class="n">to_string</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
+
+        <span class="n">substitute</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="k">while</span> <span class="n">substitute</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">choice</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s1">&#39;Choose a substitute for </span><span class="si">{}</span><span class="s1"> (index): &#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">candidate</span><span class="p">[</span><span class="s1">&#39;ingredient_clean&#39;</span><span class="p">]))</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">substitute</span> <span class="o">=</span> <span class="n">substitute_candidates_df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[[</span><span class="n">choice</span><span class="p">]]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="k">except</span> <span class="ne">IndexError</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Index not in list&#39;</span><span class="p">)</span>
+            <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Choose index (number) of substitute&#39;</span><span class="p">)</span>
+
+        <span class="n">co2_saving_percent</span> <span class="o">=</span> <span class="n">compute_footprint_reduction</span><span class="p">(</span><span class="n">recipe_co2</span><span class="p">,</span> <span class="n">candidate</span><span class="p">,</span> <span class="n">substitute</span><span class="p">)</span>
+
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;By replacing </span><span class="si">{}</span><span class="s1"> with </span><span class="si">{}</span><span class="s1"> the recipes ecological footprint can be reduced by </span><span class="si">{}</span><span class="s1"> percent!&#39;</span>
+              <span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">candidate</span><span class="p">[</span><span class="s1">&#39;ingredient_clean&#39;</span><span class="p">],</span> <span class="n">substitute</span><span class="p">[</span><span class="s1">&#39;ingredient&#39;</span><span class="p">],</span> <span class="n">co2_saving_percent</span><span class="p">))</span>
+
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;No substitutes for </span><span class="si">{}</span><span class="s1"> that would lower CO2 emissions.&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">candidate</span><span class="p">[</span><span class="s1">&#39;ingredient_clean&#39;</span><span class="p">]))</span>
+
+</pre></div>
+    </div>
+  </div>
+  <div class='clearall'></div>
+</div>
+</body>

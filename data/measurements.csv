@@ -1,0 +1,29 @@
+﻿key,unit,g,type
+kilogram,"kg, kg., kilogram, kilograms, kilogramm",1000,weight
+gram,"g, g., gr, gram, grams, gramm",1,weight
+pound,"lb, lb., pound, pounds, pfund, pfunde, libbra, libbre",453.59,weight
+ounce,"oz, oz., ounce, ounces, unze, unzen, oncia",28.35,weight
+pint,"pt, pt., pint, pints",473.17,volume
+liter,"l, l., liter, litres, liters, litro, litri",1000,volume
+milliliter,"ml, ml., milliliter, milliliters, mililiter, millilitro",1,volume
+centiliter,"cl, cl., centiliter, zentiliter, centilitro",10,volume
+deciliter,"dl, dl., deciliter, deziliter, decilitro",100,volume
+fluid_ounce,"fl. oz., fl oz, fluid ounce, fluid ounces, füssigunze, flüssigunzen, oncia fluide, once fluide",29.57,volume
+gallon,"gal, gal., gallon, gallons, gallone, gallonen",3785.41,volume
+quart,"qt, qt., qts, qts., quart, quarts, quarta, quarti",946.35,volume
+cup_us,"cups, cup, c., c",237,volume
+cup,"tasse, tassen, becher, tazza, tazze",150,volume
+tablespoon,"tbsp., tbsp, tablespoon, tablespoons, tbs., tbs, el, el., esslöffel, cucchiaio da tavola, cucchiai, cucchiaio",15,volume
+teaspoon,"tsp., tsp, teaspoon, teaspoons, tl, tl., teelöffel, cucchiaino, cucchiaini",5,volume
+bag,"bag, bags, pck., pck, pkt., pkt, päckli, sacchetto, sacchetti",8,weight
+little,"little, a little, pinch, pinches, touch, touches, some, wenig, ein wenig, prise, prisen, etwas, un po, po, pizzico, pizzichi",1,volume
+dash,"dash, dashes, schuss, spritzer, colpo",2,volume
+bunch,"bunch, bunches, bund, bündel, mazzetto, mazzo",25,volume
+twig,"twig, twigs, sprig, sprigs, zweig, zweiglein, ramoscelli",10,volume
+hand,"handful, handvoll, manciata",100,volume
+drop,"drop, drops, tropfen, goccia, gocce",1,volume
+msp,"msp, messerspitze, punta",3,volume
+cube,"cube, cubes, wurfel, cubo",42,weight
+clove,"zehe, zehen, spicchio, spicchi",12,weight
+possibly,"possibly, evtl., eventuell, n. b, n.b, nach belieben",0,volume
+piece,"piece, pieces, stück, stücke, pezzo, pezza, pezzi",,weight

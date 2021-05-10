@@ -1,0 +1,923 @@
+ingredient,attribute,density,density_avg
+abiyuch,raw,0.475,0.475
+acerola,(west indian cherry),0.408333333,0.408333333
+acerola juice,raw,1.008333333,1.008333333
+wine,,1,1
+alfalfa seeds,sprouted,0.170790816,0.170790816
+amaranth grain,cooked,1.025,0.914583333
+amaranth grain,uncooked,0.804166667,0.914583333
+amaranth leaves,cooked,0.55,0.333333333
+amaranth leaves,raw,0.116666667,0.333333333
+apple juice,canned,1.033333333,1.014583333
+apple juice,frozen,0.995833333,1.014583333
+applebee's,chili,0.566666667,0.541666667
+applebee's,kraft,0.516666667,0.541666667
+apples,dehydrated (low moisture),0.527083333,0.694791667
+apples,dried,0.8625,0.694791667
+applesauce,canned,1.030208333,1.030208333
+apricot nectar,canned,1.108333333,1.108333333
+apricots,dehydrated (low-moisture),0.766666667,0.8875
+apricots,frozen,1.008333333,0.8875
+arrowroot flour,,0.533333333,0.533333333
+artichokes,(globe or french),0.7,0.7
+arugula,raw,0.041666667,0.041666667
+asparagus,canned,0.675,0.589583333
+asparagus,cooked,0.375,0.589583333
+asparagus,frozen,0.75,0.589583333
+asparagus,raw,0.558333333,0.589583333
+bacon,meatless,0.6,0.6
+bacon bits,meatless,0.476190476,0.476190476
+balsam-pear (bitter gourd),leafy tips,0.194444444,0.194444444
+bananas,dehydrated,0.419217687,0.419217687
+barley,hulled,0.766666667,0.755208333
+barley,pearled,0.74375,0.755208333
+barley flour,,0.616666667,0.616666667
+barley malt flour,,0.675,0.675
+adzuki beans,adzuki,0.992708333,0.992708333
+baked beans,baked,1.058854167,1.058854167
+black turtle beans,black turtle,0.827083333,0.827083333
+chili beans,chili,1.054166667,1.054166667
+cranberry (roman) beans,cranberry (roman),0.842708333,0.842708333
+fava beans,fava,0.525,0.525
+beans,white,0.77,0.793386
+beans,black,0.816772959,0.793386
+french beans,french,0.747222222,0.747222222
+great northern beans,great northern,0.884166667,0.884166667
+kidney beans,kidney,0.831037415,0.831037415
+liquid from stewed kidney beans beans,liquid from stewed kidney beans,1,1
+mung beans,mung,0.520833333,0.520833333
+navy beans,navy,0.781666667,0.781666667
+pink beans,pink,0.761111111,0.761111111
+pinto beans,pinto,0.795464853,0.795464853
+shellie beans,shellie,1.020833333,1.020833333
+small white beans,small white,0.795833333,0.795833333
+snap beans,snap,0.562708333,0.562708333
+white beans,white,0.832886905,0.832886905
+yellow beans,yellow,0.763888889,0.763888889
+beef,corned beef hash,0.983333333,0.983333333
+beet greens,raw,0.158333333,0.158333333
+beets,canned,1.025,0.795833333
+beets,raw,0.566666667,0.795833333
+coffee,,0.640235261,0.867176871
+blackberry,canned,1.066666667,0.773611111
+blackberry,raw,0.6,0.773611111
+blackberry,wild,0.654166667,0.773611111
+blackberry juice,canned,1.041666667,1.041666667
+blueberry,canned,1.041666667,0.788541667
+blueberry,dried,0.166666667,0.788541667
+blueberry,raw,0.616666667,0.788541667
+blueberry,wild,1.329166667,0.788541667
+boysenberry,canned,1.066666667,1.066666667
+bread,,0.416666667,0.445833333
+toast,,0.416666667,0.445833333
+breadfruit,raw,0.916666667,0.916666667
+broadbeans,immature seeds,0.454166667,0.454166667
+broadbeans (fava beans),mature seeds,0.708269558,0.708269558
+broccoli,chinese,0.366666667,0.478333333
+broccoli,frozen,0.59,0.478333333
+brussel sprouts,cooked,0.325,0.445833333
+brussel sprouts,frozen,0.645833333,0.445833333
+brussel sprouts,raw,0.366666667,0.445833333
+buckwheat,,0.708333333,0.708333333
+buckwheat flour,whole-groat,0.5,0.5
+buckwheat groats,roasted,0.691666667,0.691666667
+bulgur,cooked,0.664880952,0.624107143
+bulgur,dry,0.583333333,0.624107143
+butter,,0.955909864,0.848710317
+butter,whipped,0.634311224,0.848710317
+butter oil,anhydrous,0.862457483,0.862457483
+butter replacement,without fat,0.333333333,0.333333333
+butterbur,(fuki),0.391666667,0.391666667
+japanese style cabbage,japanese style,0.625,0.559375
+kimchi cabbage,kimchi,0.625,0.559375
+mustard cabbage,mustard,0.533333333,0.559375
+napa cabbage,napa,0.454166667,0.559375
+caribou,hind quarter,0.275,0.275
+carob flour,,0.418664966,0.418664966
+carrot,dehydrated,0.308333333,0.308333333
+carrot juice,canned,0.983333333,0.983333333
+carrots,cooked,0.659863946,0.659863946
+cassava,raw,0.858333333,0.858333333
+catsup,,1.078231293,1.078231293
+catsup,low sodium,1.078231293,1.078231293
+cauliflower,green,0.266666667,0.266666667
+celeriac,raw,0.65,0.65
+celery,raw,0.510204082,0.510204082
+cereals,,0.849971655,0.765486554
+chard,swiss,0.15,0.15
+cheese,,0.724357816,0.724357816
+cheddar,american cheddar,0.933333333,0.933333333
+camembert,,1.025,1.025
+cottage cheese,cottage,0.942708333,0.942708333
+cream cheese,cream,1.03021542,1.03021542
+limburger,,0.558333333,0.558333333
+mexican cheese,mexican,0.568537415,0.568537415
+mozzarella,,0.358333333,0.358333333
+parmesan,parmesan,0.378401361,0.378401361
+ricotta,ricotta,0.770833333,0.770833333
+cherry,sour,0.984166667,0.683611111
+cherry,sweet,0.9,0.683611111
+cherry juice,tart,1.120833333,1.120833333
+chickpeas,bengal gram),0.845170068,0.845170068
+chicory,witloof,0.1875,0.1875
+chili,no beans,1,1
+chili con carne with beans,canned entree,1.008333333,1.008333333
+chili with beans,canned,1.07755102,1.047108844
+chili with beans,microwavable bowls,1.016666667,1.047108844
+chives,freeze-dried,0.008469388,0.008469388
+chokecherries,raw,0.641666667,0.641666667
+cocoa,dry powder,0.358304989,0.358304989
+cilantro,raw,0.016666667,0.016666667
+corn,sweet,0.846780303,0.717140152
+corn,yellow,0.5875,0.717140152
+corn bran,crude,0.316666667,0.316666667
+corn flour,masa,0.475,0.484481293
+corn flour,whole-grain,0.478443878,0.484481293
+corn flour,yellow,0.5,0.484481293
+corn grain,white,0.691666667,0.691666667
+corn grain,yellow,0.691666667,0.691666667
+corn pudding,home prepared,1.041666667,1.041666667
+corn with red and green peppers,canned,0.945833333,0.945833333
+cornmeal,degermed,0.654166667,0.589236111
+cornmeal,white,0.597222222,0.589236111
+cornmeal,whole-grain,0.508333333,0.589236111
+cornmeal,yellow,0.597222222,0.589236111
+cornsalad,raw,0.233333333,0.233333333
+cornstarch,,0.533333333,0.533333333
+potato starch,,0.533333333,0.533333333
+couscous,dry,0.720833333,0.720833333
+cowpeas,catjang,0.706944444,0.62353836
+cowpeas,common (blackeyes,0.76922619,0.62353836
+cowpeas,young pods with seeds,0.394444444,0.62353836
+cowpeas (blackeyes),immature seeds,0.677083333,0.677083333
+cracker,meal,0.479166667,0.479166667
+cracker barrel,macaroni n' cheese,0.620833333,0.620833333
+cracker barrel,macaroni n' cheese plate,0.620833333,0.620833333
+cranberry,dried,0.166666667,0.166666667
+cranberry juice,unsweetened,1.054166667,1.054166667
+cranberry sauce,canned,1.154166667,0.579166667
+cranberry sauce,jellied,0.291666667,0.579166667
+cranberry sauce,whole,0.291666667,0.579166667
+cranberry-orange relish,canned,1.145833333,1.145833333
+cream,fluid,1.012287415,1.040741922
+sour cream,sour,0.95085034,1.040741922
+whipping cream,whipped,0.227040816,1.040741922
+cress,garden,0.404166667,0.404166667
+croutons,plain,0.125,0.145833333
+croutons,seasoned,0.166666667,0.145833333
+crab,,0.5625,0.5625
+lobster,,0.604166667,0.604166667
+shrimp,,0.533333333,0.533333333
+currants,,0.466666667,0.466666667
+bean dip,bean,2.448979592,2.448979592
+frito's dip,frito's,2.448979592,2.448979592
+salsa con queso dip,salsa con queso,1.28082483,1.28082483
+tostitos dip,tostitos,1.28082483,1.28082483
+dulce de leche,,1.292517007,1.292517007
+edamame,frozen,0.56875,0.56875
+egg white,white,0.744345238,0.72202381
+egg,whole,0.779421769,0.72202381
+egg yolk,yolk,0.642304422,0.72202381
+eggnog,,1.058333333,1.058333333
+eggplant,pickled,0.566666667,0.566666667
+elderberry,raw,0.604166667,0.604166667
+epazote,raw,0.054421769,0.054421769
+eppaw,raw,0.416666667,0.416666667
+escarole,cooked,0.625,0.625
+fat,chicken,0.862457483,0.863715278
+figs,canned,1.0625,0.95625
+figs,dried,0.85,0.95625
+caviar,,1.088435374,1.088435374
+herring,,0.583333333,0.583333333
+mackerel,,0.791666667,0.791666667
+roe,,0.952380952,0.952380952
+sardine,,0.370833333,0.370833333
+scup,,0.691666667,0.691666667
+tuna salad,,0.854166667,0.854166667
+fish broth,,1.016666667,1.016666667
+fish oil,cod liver,0.917290249,0.912990363
+fish oil,herring,0.917290249,0.912990363
+fish oil,menhaden,0.895790816,0.912990363
+fish oil,salmon,0.917290249,0.912990363
+fish oil,sardine,0.917290249,0.912990363
+caramel custard,,0.5875,0.5875
+frijoles rojos volteados (refried beans,red,0.995620748,0.995620748
+fungi,cloud ears,0.116666667,0.116666667
+garlic,raw,0.569047619,0.569047619
+ginger root,raw,0.408163265,0.408163265
+goji berry,dried,1.904761905,1.904761905
+gooseberry,canned,1.05,0.8375
+gooseberry,raw,0.625,0.8375
+grape juice,canned or bottled,1.054166667,1.054166667
+grape leaves,raw,0.058333333,0.058333333
+grapefruit,sections,1.0375,1.0375
+grapefruit juice,pink,1.029166667,1.040833333
+grapefruit juice,pink or red,1.05,1.040833333
+grapefruit juice,white,1.043333333,1.040833333
+grapes,american type (slip skin),0.383333333,0.685416667
+grapes,canned,1.04375,0.685416667
+grapes,red or green (european type,0.629166667,0.685416667
+gravy,au jus,0.429039116,0.727564405
+gravy,beef,0.970833333,0.727564405
+gravy,brown,0.408163265,0.727564405
+gravy,campbell's,0.5875,0.727564405
+gravy,chicken,0.568983844,0.727564405
+gravy,heinz home style,0.6,0.727564405
+gravy,meat or poultry,0.983333333,0.727564405
+gravy,mushroom,0.991666667,0.727564405
+gravy,turkey,1.008560091,0.727564405
+groundcherries,(cape-gooseberries or poha),0.583333333,0.583333333
+guanabana nectar,canned,1.045833333,1.045833333
+guava nectar,canned,1.045833333,1.045833333
+guava sauce,cooked,0.991666667,0.991666667
+guavas,common,0.6875,0.852083333
+guavas,strawberry,1.016666667,0.852083333
+ham and cheese spread,,1.020408163,1.020408163
+ham salad spread,,1.020408163,1.020408163
+hearts of palm,canned,0.608333333,0.608333333
+hominy,canned,0.677083333,0.677083333
+honey,,1.420535714,1.420535714
+horned melon (kiwano),,0.970833333,0.970833333
+horseradish,prepared,1.020408163,1.020408163
+hummus,commercial,1.022704082,1.023852041
+hummus,home prepared,1.025,1.023852041
+hush puppies,prepared from recipe,0.633333333,0.633333333
+hyacinth beans,mature seeds,0.830555556,0.830555556
+hyacinth-beans,immature seeds,0.352777778,0.352777778
+ice cream,soft serve,0.358333333,0.358333333
+ice creams,chocolate,0.616666667,0.489583333
+ice creams,vanilla,0.3625,0.489583333
+incaparina,dry mix (corn and soy flours),0.569387755,0.569387755
+jams and preserves,,1.360544218,1.221315193
+jams and preserves,apricot,1.360544218,1.221315193
+jams and preserves,no sugar (with sodium saccharin),0.942857143,1.221315193
+java-plum,(jambolan),0.5625,0.5625
+jellies,no sugar (with sodium saccharin),1.271258503,1.271258503
+jellies,reduced sugar,1.271258503,1.271258503
+jellyfish,dried,0.241666667,0.241666667
+jute,potherb,0.280555556,0.280555556
+kale,cooked,0.491666667,0.333333333
+kale,frozen,0.420833333,0.333333333
+kale,raw,0.0875,0.333333333
+kanpyo,(dried gourd strips),0.1125,0.1125
+kefir,lowfat,1.020833333,1.020833333
+kfc,coleslaw,0.795833333,0.795833333
+kohlrabi,raw,0.5625,0.5625
+lambsquarters,steamed (northern plains indians),0.270833333,0.270833333
+lard,,0.862457483,0.862457483
+lasagna,vegetable,0.941666667,0.941666667
+baking powder,,0.724489796,0.676020408
+baking soda,,0.704081633,0.676020408
+cream of tartar,,0.459183673,0.676020408
+yeast,,0.816326531,0.676020408
+leeks,(bulb and lower leaf-portion),0.370833333,0.189651361
+lemon grass,raw,0.302848639,0.302848639
+lemon juice,raw,1.016666667,1.016666667
+lemon juice,bottled,1.030612245,1.024886621
+lemon juice,canned,1.019160998,1.024886621
+lemon peel,raw,0.408163265,0.408163265
+lentils,mature seeds,0.830867347,0.68792517
+lentils,pink or red,0.8,0.68792517
+lentils,raw,0.8,0.68792517
+lentils,sprouted,0.320833333,0.68792517
+lima beans,immature seeds,0.716666667,0.76819846
+lima beans,large,0.801817602,0.76819846
+lima beans,thin seeded (baby),0.786111111,0.76819846
+lime juice,canned or bottled,1.025,1.016666667
+lime juice,raw,1.008333333,1.016666667
+litchis,raw,0.791666667,0.791666667
+liverwurst spread,,0.229166667,0.229166667
+lotus root,cooked,0.25,0.25
+lupins,mature seeds,0.711111111,0.711111111
+macaroni and cheese,dry mix,0.825,0.697916667
+macaroni and cheese,frozen entree,0.570833333,0.697916667
+malabar spinach,cooked,0.183333333,0.183333333
+malt beverage,includes non-alcoholic beer,0.9875,0.9875
+mango nectar,canned,1.045833333,1.045833333
+mangosteen,canned,0.9,0.9
+half-fat margarine,,0.952380952,0.958293178
+margarine,industrial,0.952465986,0.958293178
+margarine,regular,0.955196523,0.958293178
+margarine,spread,0.973129252,0.958293178
+margarine-like,margarine-butter blend,0.95473356,0.96023715
+margarine-like,vegetable oil spread,0.965740741,0.96023715
+margarine-like shortening,industrial,0.952380952,0.952380952
+margarine-like spread,smart balance light buttery spread,0.952380952,0.952380952
+margarine-like vegetable-oil spread,stick/tub/bottle,0.95327381,0.95327381
+marmalade,orange,1.346938776,1.346938776
+mayonnaise,low sodium,0.942857143,0.98111182
+mayonnaise,made with tofu,1.010204082,0.98111182
+mayonnaise,reduced fat,0.993537415,0.98111182
+mayonnaise,reduced-calorie or diet,0.977848639,0.98111182
+mayonnaise dressing,no cholesterol,1.008120748,1.008120748
+meat extender,,0.366666667,0.366666667
+meatballs,meatless,0.6,0.6
+skimmed milk,lowfat,1.020833333,1.020833333
+full cream milk,whole,1.018537415,1.018537415
+milk,,1.019685,1.019685
+millet,cooked,0.725,0.548611111
+millet,puffed,0.0875,0.548611111
+millet,raw,0.833333333,0.548611111
+millet flour,,0.495833333,0.495833333
+miso,,1.151147959,1.151147959
+molasses,,1.404166667,1.404166667
+clam,,0.833333333,0.833333333
+mussel,,0.625,0.625
+oyster,,1.033333333,1.033333333
+mothbeans,mature seeds,0.763888889,0.763888889
+mulberry,raw,0.583333333,0.583333333
+mung beans,mature seeds,0.765688776,0.765688776
+mungo beans,mature seeds,0.7875,0.7875
+mushrooms,canned,0.65,0.515
+chanterelle,,0.225,0.515
+morel,,0.275,0.515
+straw mushrooms,straw,0.758333333,0.515
+white mushrooms,white,0.666666667,0.515
+mustard,prepared,1.0375,1.0375
+natto,,0.729166667,0.729166667
+noodles,chinese,0.583333333,0.462760417
+noodles,egg,0.476041667,0.462760417
+noodles,flat,0.1875,0.462760417
+noodles,japanese,0.604166667,0.462760417
+nopales,cooked,0.620833333,0.620833333
+almond butter,,1.06505102,0.682118889
+almond,,0.619047619,0.619047619
+butternut,,0.5,0.5
+cashew butter,,1.088435374,1.088435374
+cashew,,0.585034014,0.585034014
+chestnut,,0.615277778,0.615277778
+coconut cream,,1.136564626,1.136564626
+coconut,meat,0.3375,0.3375
+coconut milk,,1.000481859,1.000481859
+hickorynut,,0.5,0.5
+mixed nuts,,0.574479167,0.574479167
+pecans,,0.458333333,0.458333333
+pilinut,,0.5,0.5
+pine nut,,0.5625,0.5625
+pistachio nut,,0.5125,0.5125
+walnut,,0.530612245,0.530612245
+oat bran,cooked,0.9125,0.652083333
+oat bran,raw,0.391666667,0.652083333
+oat flour,partially debranned,0.433333333,0.433333333
+oats,,0.65,0.65
+oheloberry,raw,0.583333333,0.583333333
+almond oil,,0.91335034,0.91335034
+apricot kernel oil,,0.91335034,0.91335034
+avocado oil,,0.926360544,0.926360544
+babassu oil,,0.917290249,0.917290249
+canola oil,,0.926360544,0.926360544
+cocoa butter oil,,0.91335034,0.91335034
+coconut oil,,0.917290249,0.917290249
+cooking and salad oil,,0.891666667,0.891666667
+corn oil,,0.917290249,0.917290249
+corn and canola oil,,0.942857143,0.942857143
+cottonseed oil,,0.91335034,0.91335034
+cupu assu oil,,0.91335034,0.91335034
+flaxseed oil,,0.917793367,0.917793367
+grapeseed oil,,0.91335034,0.91335034
+hazelnut oil,,0.91335034,0.91335034
+industrial oil,,0.917290249,0.917290249
+mustard oil,,0.926360544,0.926360544
+nutmeg butter oil,,0.917290249,0.917290249
+oat oil,,0.917290249,0.917290249
+olive oil,,0.909183673,0.909183673
+palm oil,,0.914512472,0.914512472
+peanut oil,,0.912244898,0.912244898
+poppyseed oil,,0.91335034,0.91335034
+rice bran oil,,0.91335034,0.91335034
+safflower oil,,0.917290249,0.917290249
+sesame oil,,0.91335034,0.91335034
+sheanut oil,,0.91335034,0.91335034
+soybean oil,,0.917290249,0.917290249
+soybean lecithin oil,,0.91335034,0.91335034
+sunflower oil,,0.919557823,0.919557823
+teaseed oil,,0.91335034,0.91335034
+tomatoseed oil,,0.91335034,0.91335034
+ucuhuba butter oil,,0.917290249,0.917290249
+vegetable oil,,0.930357143,0.930357143
+walnut oil,,0.917290249,0.917290249
+oil,,0.91648,0.91648
+wheat germ oil,,0.91335034,0.91335034
+okara,,0.508333333,0.508333333
+okra,raw,0.416666667,0.416666667
+olives,ripe,0.571428571,0.571428571
+on the border,mexican rice,0.475,0.51875
+on the border,refried beans,0.5625,0.51875
+onion rings,breaded,0.2,0.2
+onion,cooked,0.875,0.608206
+onion,dehydrated flakes,0.199234694,0.608206
+onion,frozen,0.875,0.608206
+onion,powdered,0.4,0.608206
+onion,fried,0.75,0.608206
+onion,cubed,0.55,0.608206
+green onion,young green,0.408163265,0.58934949
+,,,
+orange juice,canned,1.0375,1.043229167
+orange juice,chilled,1.0375,1.043229167
+orange juice,frozen concentrate,1.064583333,1.043229167
+orange juice,raw (includes foods for usda's food distribution program),1.033333333,1.043229167
+orange peel,raw,0.408163265,0.408163265
+orange-grapefruit juice,canned or bottled,1.029166667,1.029166667
+oranges,raw,0.708333333,0.708333333
+pancakes,plain,0.216666667,0.216666667
+papaya nectar,canned,1.041666667,1.041666667
+parsley,freeze-dried,0.016522109,0.137512755
+parsley,fresh,0.258503401,0.137512755
+passion-fruit,(granadilla),0.983333333,0.983333333
+passion-fruit juice,purple,1.029166667,1.029166667
+passion-fruit juice,yellow,1.029166667,1.029166667
+pasta,gluten-free,0.510416667,0.510416667
+pasta with tomato sauce,no meat,0.991666667,0.991666667
+pate,chicken liver,0.884353741,0.884353741
+pate,goose liver,0.884353741,0.884353741
+pate,liver,0.884353741,0.884353741
+pate de foie gras,canned (goose liver pate),0.884353741,0.884353741
+peach nectar,canned,0.995833333,0.995833333
+peaches,canned,1.019444444,0.955092593
+peaches,dehydrated (low-moisture),0.745833333,0.955092593
+peaches,dried,1.1,0.955092593
+peanut butter,chunk style,1.625935374,1.536352041
+peanut butter,chunky,1.625935374,1.536352041
+peanut butter,reduced sodium,1.088435374,1.536352041
+peanut butter,smooth,1.625935374,1.536352041
+peanut butter,smooth (includes foods for usda's food distribution program),1.625935374,1.536352041
+peanut butter,smooth style,1.625935374,1.536352041
+peanut butter with omega-3,creamy,1.088435374,1.088435374
+peanut flour,defatted,0.25,0.25
+peanut flour,low fat,0.25,0.25
+peanut spread,reduced sugar,2.108843537,2.108843537
+peanut,all types,0.608333333,0.605555556
+peanut,spanish,0.611111111,0.605555556
+peanut,valencia,0.602777778,0.605555556
+peanut,virginia,0.6,0.605555556
+pear nectar,canned,1.041666667,1.041666667
+pears,canned,0.972916667,0.972916667
+peas,edible-podded,0.653333333,0.656031659
+peas,green,0.574358974,0.656031659
+peas,green (includes baby and lesuer types),0.729166667,0.656031659
+peas,mature seeds,0.5,0.656031659
+peas,split,0.82329932,0.656031659
+peas and carrots,canned,1.0625,0.690972222
+peas and carrots,frozen,0.319444444,0.690972222
+peas and onions,canned,0.5,0.547916667
+peas and onions,frozen,0.595833333,0.547916667
+pepeao,dried,0.1,0.1
+peppermint,fresh,0.217687075,0.217687075
+pepper,chili,0.579166667,0.347369615
+pepper,hot chile,0.154166667,0.347369615
+bell pepper,sweet,0.30877551,0.347369615
+pickle relish,hamburger,0.764370748,0.849787415
+pickle relish,hot dog,0.764370748,0.849787415
+pickle relish,sweet,1.020620748,0.849787415
+pickles,chowchow,1.020833333,1.020833333
+cucumber,,0.645833333,0.645833333
+pie crust,cookie-type,0.5375,0.5375
+pie fillings,blueberry,1.091666667,1.095833333
+pie fillings,cherry,1.1,1.095833333
+pigeon peas (red gram),mature seeds,0.751388889,0.751388889
+pigeonpeas,immature seeds,0.638888889,0.638888889
+pimento,canned,0.808163265,0.808163265
+pineapple juice,canned,1.041666667,1.041666667
+pineapple juice,canned or bottled,1.041666667,1.041666667
+pineapple juice,frozen concentrate,1.041666667,1.041666667
+pitanga,,0.720833333,0.720833333
+plantains,green,0.53125,0.586458333
+plantains,yellow,0.641666667,0.586458333
+plums,wild (northern plains indians),0.670833333,0.670833333
+poi,,1,1
+pokeberry shoots,,0.680413832,0.680413832
+pomegranate juice,bottled,1.0375,1.0375
+popcorn,microwave,0.032916667,0.032916667
+popeyes,coleslaw,0.791666667,0.791666667
+pork,cured,0.583333333,0.422916667
+pork,fresh,0.59375,0.422916667
+pork,oriental style,0.091666667,0.422916667
+potato flour,,0.666666667,0.666666667
+potato puffs,frozen,0.516666667,0.516666667
+potato salad,home-prepared,1.041666667,1.041666667
+potato salad with egg,,0.520833333,0.520833333
+potatoe,au gratin,1.020833333,0.652276235
+potatoe,baked,0.254166667,0.652276235
+potatoe,boiled,0.325,0.652276235
+potatoe,canned,0.75,0.652276235
+potatoe,hash brown,0.54375,0.652276235
+potatoe,mashed,0.822569444,0.652276235
+potatoe,microwaved,0.325,0.652276235
+potatoe,o'brien,0.808333333,0.652276235
+potatoe,scalloped,1.020833333,0.652276235
+poultry salad sandwich spread,,0.884353741,0.884353741
+prickly pears,raw,0.620833333,0.620833333
+protein supplement,milk based,0.74829932,0.74829932
+prune juice,canned,1.066666667,1.066666667
+prune puree,,2.448979592,2.448979592
+prunes,canned,0.975,0.916666667
+prunes,dehydrated (low-moisture),0.858333333,0.916666667
+pudding,lemon,0.529166667,0.529166667
+puddings,all flavors except chocolate,1.083333333,0.630815972
+puddings,banana,0.529166667,0.630815972
+puddings,chocolate,0.579166667,0.630815972
+puddings,coconut cream,0.597916667,0.630815972
+puddings,lemon,0.6125,0.630815972
+puddings,rice,0.541666667,0.630815972
+puddings,tapioca,0.533333333,0.630815972
+puddings,vanilla,0.569444444,0.630815972
+pulled pork in barbecue sauce,,1.0375,1.0375
+pumpkin,canned,1.020833333,0.789583333
+pumpkin,flowers,0.558333333,0.789583333
+pumpkin flowers,cooked,0.558333333,0.347916667
+pumpkin flowers,raw,0.1375,0.347916667
+pumpkin leaves,cooked,0.295833333,0.229166667
+pumpkin leaves,raw,0.1625,0.229166667
+pumpkin pie mix,canned,1.125,1.125
+purslane,cooked,0.479166667,0.329166667
+purslane,raw,0.179166667,0.329166667
+quinoa,cooked,0.770833333,0.739583333
+quinoa,uncooked,0.708333333,0.739583333
+radish seeds,sprouted,0.158333333,0.158333333
+radishes,hawaiian style,0.625,0.554166667
+radishes,oriental,0.483333333,0.554166667
+rambutan,canned,0.891666667,0.891666667
+raspberry,canned,1.066666667,0.706944444
+raspberry,raw,0.5125,0.706944444
+raspberry,wild (northern plains indians),0.541666667,0.706944444
+ravioli,cheese with tomato sauce,0.6625,0.920833333
+ravioli,cheese-filled,1.008333333,0.920833333
+ravioli,meat-filled,1.091666667,0.920833333
+reddi wip fat free whipped topping,,0.3125,0.3125
+refried beans,canned,0.988541667,0.988541667
+rennin,chocolate,0.591666667,0.591666667
+rennin,vanilla,0.591666667,0.591666667
+restaurant,chinese,0.646875,0.616629464
+restaurant,family style,0.520833333,0.616629464
+restaurant,latino,0.748809524,0.616629464
+restaurant,mexican,0.55,0.616629464
+rhubarb,frozen,1,1
+rice,brown,0.677083333,0.70407197
+rice,white,0.731060606,0.70407197
+rice and vermicelli mix,beef flavor,0.626955782,0.747689909
+rice and vermicelli mix,chicken flavor,0.970833333,0.747689909
+rice and vermicelli mix,rice pilaf flavor,0.645280612,0.747689909
+rice bran,crude,0.491666667,0.491666667
+rice flour,brown,0.658333333,0.658333333
+rice flour,white,0.658333333,0.658333333
+rice mix,white and wild,0.795833333,0.795833333
+rice noodles,cooked,0.733333333,0.733333333
+rice-a-roni,chicken flavor,0.463605442,0.463605442
+rose hips,wild (northern plains indians),0.529166667,0.529166667
+rosemary,fresh,0.129251701,0.129251701
+rowal,raw,0.475,0.475
+rye flour,dark,0.533333333,0.461111111
+rye flour,light,0.425,0.461111111
+rye flour,medium,0.425,0.461111111
+rye,,0.704166667,0.704166667
+salad dressing,bacon and tomato,1.010204082,1.114571559
+salad dressing,blue or roquefort cheese,1.020620748,1.114571559
+salad dressing,blue or roquefort cheese dressing,1.07130102,1.114571559
+salad dressing,caesar,1.010204082,1.114571559
+salad dressing,caesar dressing,0.989583333,1.114571559
+salad dressing,coleslaw,1.193494898,1.114571559
+salad dressing,french,0.916666667,1.114571559
+salad dressing,french dressing,1.08005102,1.114571559
+salad dressing,green goddess,1.020620748,1.114571559
+salad dressing,home recipe,1.041666667,1.114571559
+salad dressing,honey mustard,2.040816327,1.114571559
+salad dressing,italian dressing,0.969196429,1.114571559
+salad dressing,kraft mayo fat free mayonnaise dressing,1.088435374,1.114571559
+salad dressing,kraft mayo light mayonnaise,1.020408163,1.114571559
+salad dressing,kraft miracle whip free nonfat dressing,1.088435374,1.114571559
+salad dressing,mayonnaise,0.963754252,1.114571559
+salad dressing,mayonnaise and mayonnaise-type,0.976530612,1.114571559
+salad dressing,mayonnaise type,0.989583333,1.114571559
+salad dressing,mayonnaise-like,1.07755102,1.114571559
+salad dressing,peppercorn dressing,0.911564626,1.114571559
+salad dressing,poppyseed,2.244897959,1.114571559
+salad dressing,russian dressing,1.036245748,1.114571559
+salad dressing,sesame seed dressing,1.020833333,1.114571559
+salad dressing,sweet and sour,1.06505102,1.114571559
+salad dressing,thousand island,1.06505102,1.114571559
+salad dressing,thousand island dressing,1.066092687,1.114571559
+salt,table,1.221882086,1.221882086
+sea salt,,1.221882086,1.221882086
+sandwich spread,meatless,1.020408163,1.020549887
+sandwich spread,pork,1.020408163,1.020549887
+sandwich spread,with chopped pickle,1.020833333,1.020549887
+barbecue sauce,barbecue,1.016425737,0.920571268
+cheese sauce,cheese,0.2625,0.920571268
+chili sauce,chili,1.020620748,0.920571268
+cocktail sauce,cocktail,0.25,0.920571268
+enchilada sauce,enchilada,0.583333333,0.920571268
+fish sauce,fish,1.224489796,0.920571268
+hoisin sauce,hoisin,1.088435374,0.920571268
+homemade sauce,homemade,0.78125,0.920571268
+horseradish sauce,horseradish,1.142857143,0.920571268
+hot chile sauce,hot chile,1.333333333,0.920571268
+oyster sauce,oyster,1.224489796,0.920571268
+pasta sauce,pasta,1.070833333,0.920571268
+peanut sauce,peanut,1.19047619,0.920571268
+peppers sauce,peppers,1.020620748,0.920571268
+pesto sauce,pesto,0.2575,0.920571268
+pizza sauce,pizza,0.2625,0.920571268
+plum sauce,plum,1.28167517,0.920571268
+ready-to-serve sauce,ready-to-serve,0.602040816,0.920571268
+salsa sauce,salsa,1.629698129,0.920571268
+sofrito sauce,sofrito,0.429166667,0.920571268
+teriyaki sauce,teriyaki,1.212244898,0.920571268
+tomato chili sauce sauce,tomato chili sauce,1.1375,0.920571268
+worcestershire sauce,worcestershire,1.151147959,0.920571268
+sauerkraut,canned,0.591666667,0.591666667
+sausage,turkey,0.533333333,0.533333333
+seasoning mix,dry,0.647959184,0.647959184
+seaweed,canadian cultivated emi-tsunomata,0.0625,0.264583333
+seaweed,spirulina,0.466666667,0.264583333
+breadnut tree seeds,,0.666666667,0.666666667
+cottonseed flour,,0.365901361,0.365901361
+cottonseed kernels,,0.650552721,0.650552721
+hemp seeds,,2.040816327,2.040816327
+lotus seeds,,0.133333333,0.133333333
+pumpkin and squash seed kernels,,0.506944444,0.506944444
+pumpkin and squash seeds,,0.266666667,0.266666667
+sesame butter,,1.020408163,1.020408163
+sesame seed kernels,,0.553042328,0.553042328
+sesame seeds,,0.606122449,0.606122449
+sesame,,0.606122449,0.606122449
+sisymbrium sp. seeds,,0.308333333,0.308333333
+sunflower seed butter,,1.088435374,1.088435374
+sunflower seed flour,,0.269387755,0.269387755
+sunflower seeds,,0.555952381,0.555952381
+sunflower seed kernels from shell,,0.533333333,0.533333333
+watermelon seeds,,0.45,0.45
+semolina,enriched,0.695833333,0.695833333
+semolina,unenriched,0.695833333,0.695833333
+sesbania flower,cooked,0.433333333,0.433333333
+shallots,freeze-dried,0.038112245,0.038112245
+shortening,confectionery,0.916751701,0.8745998
+shortening,household,0.862457483,0.8745998
+shortening,industrial,0.893159486,0.8745998
+shortening,multipurpose,0.862457483,0.8745998
+shortening,special purpose for baking,0.862457483,0.8745998
+shortening,special purpose for cakes and frostings,0.862457483,0.8745998
+shortening,vegetable,0.862457483,0.8745998
+shortening bread,soybean (hydrogenated) and cottonseed,0.854166667,0.854166667
+shortening cake mix,soybean (hydrogenated) and cottonseed (hydrogenated),0.862457483,0.862457483
+shortening confectionery,coconut (hydrogenated) and or palm kernel (hydrogenated),0.862457483,0.862457483
+shortening frying (heavy duty),beef tallow and cottonseed,0.862457483,0.862457483
+shortening frying (heavy duty),palm (hydrogenated),0.862457483,0.862457483
+shortening frying (heavy duty),soybean (hydrogenated),0.862457483,0.862457483
+shortening household soybean (hydrogenated) and palm,,0.862457483,0.862457483
+shortening industrial,lard and vegetable oil,0.862457483,0.862457483
+shortening industrial,soybean (hydrogenated) and cottonseed,0.862457483,0.862457483
+soymilk,,1.0125,1.0125
+kraft,,0.354166667,0.221299603
+popcorn,,0.038630952,0.221299603
+potato chips,,0.141666667,0.221299603
+potato sticks,,0.075,0.221299603
+tortilla chips,,0.108333333,0.221299603
+trail mix,,0.61,0.221299603
+sorghum flour,refined,0.670833333,0.5875
+sorghum flour,whole-grain,0.504166667,0.5875
+sorghum grain,,0.8,0.8
+bean & ham soup,bean & ham,1.020833333,1.020833333
+bean with pork soup,bean with pork,0.541666667,0.541666667
+beef and mushroom soup,beef and mushroom,1.045833333,1.045833333
+beef and vegetables soup,beef and vegetables,1.03125,1.03125
+beef barley soup,beef barley,0.866666667,0.866666667
+beef broth,,0.9125,0.9125
+beef broth bouillon and consomme soup,beef broth bouillon and consomme,0.516666667,0.516666667
+beef broth or bouillon canned soup,beef broth or bouillon canned,1,1
+beef noodle soup,beef noodle,0.520833333,0.520833333
+beef stroganoff soup,beef stroganoff,1,1
+black bean soup,black bean,1.029166667,1.029166667
+bouillon cubes and granules soup,bouillon cubes and granules,0.530612245,0.530612245
+cheese soup,cheese,0.78125,0.78125
+chicken soup,chicken,1.020833333,1.020833333
+chicken and vegetable soup,chicken and vegetable,1.0625,1.0625
+chicken broth,,1.0125,1.0125
+chicken gumbo soup,chicken gumbo,1.016666667,1.016666667
+chicken mushroom soup,chicken mushroom,0.516666667,0.516666667
+chicken noodle soup,chicken noodle,0.852777778,0.852777778
+chicken rice soup,chicken rice,1,1
+chicken vegetable soup,chicken vegetable,0.504166667,0.504166667
+chicken vegetable with potato and cheese soup,chicken vegetable with potato and cheese,1.020833333,1.020833333
+chicken with rice soup,chicken with rice,0.525,0.525
+chili beef soup,chili beef,1.0875,1.0875
+chunky beef soup,chunky beef,1.020833333,1.020833333
+chunky chicken noodle soup,chunky chicken noodle,1.0125,1.0125
+chunky vegetable soup,chunky vegetable,0.979166667,0.979166667
+clam chowder soup,clam chowder,0.883333333,0.883333333
+cream of celery soup,cream of celery,0.779166667,0.779166667
+cream of chicken soup,cream of chicken,0.766666667,0.766666667
+cream of mushroom soup,cream of mushroom,0.8625,0.8625
+cream of onion soup,cream of onion,0.525,0.525
+cream of potato soup,cream of potato,0.516666667,0.516666667
+cream of shrimp soup,cream of shrimp,0.770833333,0.770833333
+egg drop soup,egg drop,1.004166667,1.004166667
+hot and sour soup,hot and sour,0.970833333,0.970833333
+minestrone soup,minestrone,1.010416667,1.010416667
+pea soup,pea,0.870833333,0.870833333
+shark fin soup,shark fin,0.9,0.9
+broth soup,stock,0.990277778,0.990277778
+swanson soup,swanson,0.902083333,0.902083333
+tomato soup,tomato,0.616666667,0.616666667
+tomato beef with noodle soup,tomato beef with noodle,1.016666667,1.016666667
+tomato rice soup,tomato rice,1.029166667,1.029166667
+turkey noodle soup,turkey noodle,1.016666667,1.016666667
+vegetable soup,vegetable,0.525,0.525
+vegetable beef soup,vegetable beef,0.525,0.525
+vegetable broth,,0.920833333,0.920833333
+vegetable chicken soup,vegetable chicken,1.004166667,1.004166667
+vegetable soup soup,vegetable soup,1.054166667,1.054166667
+vegetable with beef broth soup,vegetable with beef broth,0.5125,0.5125
+vegetarian vegetable soup,vegetarian vegetable,0.764583333,0.764583333
+wonton soup,wonton,0.929166667,0.929166667
+sour cream,fat free,0.958333333,0.958333333
+sour cream,imitation,0.958333333,0.958333333
+sour cream,light,0.958333333,0.958333333
+sour cream,reduced fat,0.958333333,0.958333333
+sour dressing,non-butterfat,0.897746599,0.897746599
+soy flour,defatted,0.443239796,0.390376984
+soy flour,full-fat,0.353741497,0.390376984
+soy flour,low-fat,0.37414966,0.390376984
+soy meal,defatted,0.508333333,0.508333333
+soy sauce,reduced sodium,0.754024943,0.754024943
+soy sauce made from hydrolyzed vegetable protein,,0.896882086,0.896882086
+soy sauce made from soy (tamari),,1.224489796,1.224489796
+soy sauce made from soy and wheat (shoyu),,1.077522676,1.029903628
+soy sauce made from soy and wheat (shoyu),low sodium,0.98228458,1.029903628
+soybean,curd cheese,0.9375,0.9375
+soybeans,green,0.855555556,0.702680933
+soybeans,mature cooked,0.722278912,0.702680933
+soybeans,mature seeds,0.530208333,0.702680933
+soybean drink,chocolate,1.0125,1.0125
+soybean drink,chocolate and other flavors,1.0125,1.0125
+soybean drink,original and vanilla,1.0125,1.0125
+soymilk,enhanced,1.0125,1.0125
+soymilk,lowfat,1.0125,1.0125
+soymilk,nonfat,1.0125,1.0125
+soymilk,unsweetened,1.0125,1.0125
+spaghetti,protein-fortified,0.583333333,0.730555556
+spaghetti,spinach,0.583333333,0.730555556
+spaghetti,with meatballs in tomato sauce,1.025,0.730555556
+spanish rice mix,dry mix,0.524319728,0.524319728
+spearmint,dried,0.105442177,0.44047619
+spearmint,fresh,0.775510204,0.44047619
+spelt,cooked,0.808333333,0.766666667
+spelt,uncooked,0.725,0.766666667
+allspice,,0.397959184,0.397959184
+caraway seeds,,0.442176871,0.442176871
+celery seeds,,0.425170068,0.425170068
+chervil,,0.12585034,0.12585034
+chili powder,,0.547619048,0.547619048
+cinnamon,,0.530612245,0.530612245
+cloves,,0.43537415,0.43537415
+coriander leaf,,0.12244898,0.12244898
+coriander seeds,,0.353741497,0.353741497
+curry,powder,0.418367347,0.418367347
+dill seeds,,0.43877551,0.43877551
+dill weed,,0.207482993,0.207482993
+fenugreek seeds,,0.755102041,0.755102041
+garlic powder,,0.646258503,0.646258503
+ginger,,0.360544218,0.360544218
+mace,,0.353741497,0.353741497
+marjoram,,0.119047619,0.119047619
+mustard seeds,,0.418367347,0.418367347
+nutmeg,,0.462585034,0.462585034
+onion powder,,0.479591837,0.479591837
+paprika,,0.465986395,0.465986395
+parsley,,0.105442177,0.105442177
+pepper,,0.363945578,0.363945578
+poppy seeds,,0.585034014,0.585034014
+poultry seasoning,,0.302721088,0.302721088
+pumpkin pie spice,,0.363945578,0.363945578
+rosemary,,0.234693878,0.234693878
+saffron,,0.142857143,0.142857143
+sage,,0.139455782,0.139455782
+savory,,0.292517007,0.292517007
+turmeric,,0.62585034,0.62585034
+spice,,0.376234365,0.376234365
+spinach,canned,0.947222222,0.575694444
+spinach,cooked,0.75,0.575694444
+spinach,frozen,0.480555556,0.575694444
+spinach,raw,0.125,0.575694444
+spinach souffle,,0.566666667,0.566666667
+split pea soup,canned,1.054166667,1.054166667
+split pea with ham soup,canned,1.020833333,1.020833333
+squash,summer,0.934722222,0.790277778
+squash,winter,0.645833333,0.790277778
+stinging nettles,blanched (northern plains indians),0.370833333,0.370833333
+strawberry,canned,1.058333333,1.058333333
+succotash,(corn and limas),0.833928571,0.833928571
+sugar,turbinado,0.890221088,0.890221088
+sugars,granulated,0.845238095,0.655895692
+sugars,maple,0.612244898,0.655895692
+icing sugar,powdered,0.510204082,0.510204082
+sweet potato,canned,0.943055556,0.888194444
+sweet potato,cooked,0.833333333,0.888194444
+sweet potato leaves,cooked,0.266666667,0.266666667
+sweetener,syrup,0.818664966,0.818664966
+sweeteners,for baking,0.873278061,0.591135204
+sweeteners,sugar substitute,0.098937075,0.591135204
+sweeteners,tabletop,0.801190476,0.591135204
+chocolate syrup,chocolate,1.857823129,1.377370323
+corn syrup,corn,1.371471088,1.377370323
+grenadine syrup,grenadine,1.363945578,1.377370323
+malt syrup,malt,1.405952381,1.377370323
+maple syrup,maple,1.336522109,1.377370323
+sorghum syrup,sorghum,1.401785714,1.377370323
+sugar free syrup,sugar free,1.010204082,1.377370323
+table blends syrup,table blends,1.271258503,1.377370323
+macaroni & cheese,,0.6,0.6
+tamarind nectar,canned,1.045833333,1.045833333
+tangerine juice,raw,1.029166667,1.029166667
+tangerines,(mandarin oranges),0.958333333,0.958333333
+tapioca,pearl,0.633333333,0.633333333
+taro,leaves,0.604166667,0.604166667
+taro leaves,cooked,0.604166667,0.360416667
+taro leaves,raw,0.116666667,0.360416667
+teff,cooked,1.05,0.927083333
+teff,uncooked,0.804166667,0.927083333
+tempeh,,0.691666667,0.691666667
+thyme,fresh,0.12244898,0.12244898
+tofu,firm,0.525,0.522916667
+tofu,raw,0.520833333,0.522916667
+tofu yogurt,,1.091666667,1.091666667
+tomato and vegetable juice,low sodium,1.008333333,1.008333333
+tomato juice,canned,1.0125,1.0125
+tomato products,canned,1.003119202,1.003119202
+tomato sauce,canned,1.020833333,1.020833333
+tomato,crushed,0.504166667,0.630502409
+tomato,green,0.75,0.630502409
+tomato,red,0.926176304,0.630502409
+tomato,dried,0.341666667,0.630502409
+toppings,butterscotch or caramel,2.789115646,2.285204082
+toppings,nut in syrup,2.077891156,2.285204082
+toppings,pineapple,2.136904762,2.285204082
+toppings,strawberry,2.136904762,2.285204082
+tortellini,pasta with cheese filling,0.3375,0.3375
+triticale,,0.8,0.8
+triticale flour,whole-grain,0.541666667,0.541666667
+turnip greens,canned,0.54375,0.528125
+turnip greens,frozen,0.5125,0.528125
+turnip greens and turnips,frozen,0.572222222,0.572222222
+turnips,frozen,0.65,0.65
+vanilla,,0.869387755,0.869387755
+vanilla extract,,0.869387755,0.869387755
+vegetable juice,bolthouse farms,1.120833333,1.120833333
+vegetable juice cocktail,canned,1.054166667,1.05625
+vegetable juice cocktail,low sodium,1.058333333,1.05625
+vegetable oil,palm kernel,0.908333333,0.908333333
+vegetable oil-butter spread,reduced calorie,0.873426871,0.873426871
+mixed vegetables,,0.614583333,0.686458333
+vegetables,mixed (corn,0.758333333,0.686458333
+vermicelli,made from soy,0.583333333,0.583333333
+balsamic vinegar,balsamic,1.077522676,1.077522676
+apple vinegar,cider,1.00994898,1.00994898
+distilled vinegar,distilled,1.008560091,1.008560091
+red wine vinegar,red wine,1.00994898,1.00994898
+white wine vinegar,white wine,1.00994898,1.00994898
+vinegar,,1.026495181,1.026495181
+vitasoy usa,vitasoy light vanilla soymilk,1.0125,1.0125
+vitasoy usa,vitasoy organic classic original soymilk,1.0125,1.0125
+vitasoy usa,vitasoy organic creamy original soymilk,1.0125,1.0125
+water,bottled,0.9875,0.9875
+wheat,durum,0.8,0.724479167
+wheat,hard red spring,0.8,0.724479167
+wheat,hard red winter,0.8,0.724479167
+wheat,hard white,0.8,0.724479167
+wheat,kamut khorasan,0.745833333,0.724479167
+wheat,soft red winter,0.7,0.724479167
+wheat,soft white,0.7,0.724479167
+wheat,sprouted,0.45,0.724479167
+wheat bran,crude,0.241666667,0.241666667
+wheat flour,white,0.519642857,0.519642857
+wholewheat flour,whole-grain (includes foods for usda's food distribution program),0.5,0.5
+flour,wheat,0.519642857,0.519642857
+wheat germ,crude,0.479166667,0.479166667
+whey,acid,0.414264456,0.538329082
+whey,sweet,0.662393707,0.538329082
+whipped cream substitute,dietetic,0.333333333,0.333333333
+whipped topping,frozen,0.3125,0.3125
+wild rice,cooked,0.683333333,0.675
+wild rice,raw,0.666666667,0.675
+winged bean,immature seeds,0.19375,0.19375
+winged beans,immature seeds,0.258333333,0.494444444
+winged beans,mature seeds,0.730555556,0.494444444
+yambean (jicama),raw,0.541666667,0.541666667
+yardlong beans,mature seeds,0.706944444,0.706944444
+yeast extract spread,,1.224489796,1.224489796
+yogurt,frozen,0.283333333,0.283333333
+cocoa powder,,0.55,0.55
+chili,,0.5,0.5
+red chili,,0.5,0.5
+rape oil,rapeseed,0.92,0.92
+schmand,,0.95,0.95
+herbs,,0.3,0.3
+basil,,0.3,0.3
+oregano,,0.3,0.3
+cumin,,0.3,0.3
+caraway,,0.3,0.3
+dill,,0.3,0.3
+cardamom,,0.3,0.3
+mint,,0.3,0.3
+linseed,,0.4,0.4
+anise,,0.4,0.4
+chia seeds,,0.4,0.4
